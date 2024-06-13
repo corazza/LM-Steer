@@ -1,0 +1,54 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug training",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/experiments/training/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--dataset_name",
+                "sentiment-sst5",
+                "--eval_file",
+                "data/prompts/sentiment_prompts-10k/positive_prompts.jsonl",
+                "--output_file",
+                "logs/sentiment-gpt2-large/predictions-positive_-5.jsonl",
+                "--ckpt_name",
+                "logs/sentiment-gpt2-large/checkpoint.pt",
+                "--model",
+                "gpt2-large",
+                "--adaptor_class",
+                "multiply",
+                "--num_steers",
+                "2",
+                "--dummy_steer",
+                "--rank",
+                "1000",
+                "--cuda",
+                "--batch_size",
+                "32",
+                "--max_length",
+                "256",
+                "--verbose",
+                "--n_steps",
+                "1000",
+                "--lr",
+                "1e-2",
+                "--regularization",
+                "1e-6",
+                "--epsilon",
+                "1e-3",
+                "--steer_values",
+                "-5",
+                "1",
+                "--top_p",
+                "0.9"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
