@@ -49,6 +49,39 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Steer user prompt",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/moralagents/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--prompt_only",
+                "--ckpt_name",
+                "logs/sentiment-gpt2-large/checkpoint.pt",
+                "--model",
+                "gpt2-large",
+                "--adaptor_class",
+                "multiply",
+                "--num_steers",
+                "2",
+                "--rank",
+                "1000",
+                "--cuda",
+                "--verbose",
+                "--epsilon",
+                "1e-3",
+                "--steer_values",
+                "-5",
+                "1",
+                "--top_p",
+                "0.9"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
